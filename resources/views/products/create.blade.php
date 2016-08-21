@@ -18,7 +18,7 @@
     {!!Form::label('price', 'Price')!!}
     {!!Form::text('price', "0$", ['placeholder' => "give a price"])!!}
 
-    <br/>
+    <br/><br/>
 
     {!!Form::submit('Create')!!}
 

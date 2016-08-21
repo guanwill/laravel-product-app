@@ -43,7 +43,23 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+      // Validate the request...
+
+        //First way to create a new object
+        // $Product = new Product;
+        // $Product->name = $request->name;
+        // $Product->price = $request->price;
+        // $Product->save();
         //
+        // return "something";
+
+        //Alternative way to create new object
+        $inputs = $request->all();
+        $Product = Product::Create($inputs);
+        // return redirect()->route('product.index');
+
+        //other way to redirect
+        return redirect()->action('ProductController@index');
     }
 
     /**
@@ -52,9 +68,12 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id)  //constructing our show view for the individual object
     {
-        //
+        $Product = Product::find($id);
+        return view('products.view');
+        // return $Product; //by default this returns the object in json format
+
     }
 
     /**

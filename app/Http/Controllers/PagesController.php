@@ -1,5 +1,3 @@
-<!-- This controller is for our static web pages -->
-
 <?php
 
 namespace App\Http\Controllers;
