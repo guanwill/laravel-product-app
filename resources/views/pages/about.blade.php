@@ -1,45 +1,20 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Laravel</title>
+@extends('layouts.layout')
 
-        <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
+@section('title')
+  About
+@stop
 
-        <style>
-            html, body {
-                height: 100%;
-            }
+@section('body')
+  <h1>This is the about page</h1>
 
-            body {
-                margin: 0;
-                padding: 0;
-                width: 100%;
-                display: table;
-                font-weight: 100;
-                font-family: 'Lato';
-            }
+  <p>{{$companyName}}</p>  <!-- Use curly brackets to access variables defined in controller. this variable is defined in Pages Controller in getAbout function -->
 
-            .container {
-                text-align: center;
-                display: table-cell;
-                vertical-align: middle;
-            }
+  @for ($i = 0; $i < 10; $i++)
+    <p>The current value is {{ $i }}</p>
+  @endfor
 
-            .content {
-                text-align: center;
-                display: inline-block;
-            }
+  @foreach ($users as $friends)
+    <p>Your name is {{$friends}}</p>
+  @endforeach
 
-            .title {
-                font-size: 96px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <div class="content">
-                <div class="title">About</div>
-            </div>
-        </div>
-    </body>
-</html>
+@stop

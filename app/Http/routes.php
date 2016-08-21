@@ -11,17 +11,21 @@
 |
 */
 
-//this is a basic route
-Route::get('/', function () {
-    return view('welcome');  //looks for welcome.blade.php view to render for root route
-});
 
 //this is a named route
+Route::get('/', [
+  'as' => '/',
+  'uses' => 'PagesController@getIndex'
+]);
+
 Route::get('about', [
     'as' => 'about',
     'uses' => 'PagesController@getAbout'  //specifying the controller and method for this route
 ]);
 
-Route::get('contact', function () {
-    return view('pages.contact');
-});
+Route::get('contact', [
+    'as' => 'contact',
+    'uses' => 'PagesController@getContact'  //specifying the controller and method for this route
+]);
+
+Route::resource('product', 'ProductController');
