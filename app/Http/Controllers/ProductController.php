@@ -70,8 +70,8 @@ class ProductController extends Controller
      */
     public function show($id)  //constructing our show view for the individual object
     {
-        $Product = Product::find($id);
-        return view('products.view');
+        $product = Product::find($id);
+        return view('products.show')->with('product', $product);  //to pass the variable product to our view
         // return $Product; //by default this returns the object in json format
 
     }
@@ -82,9 +82,13 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id) //this is to render a view to edit
     {
-        //
+        $product = Product::find($id);
+        // $product = Product::where('id', $id)->first();
+
+        return view('products.edit')->with('product', $product);  //to pass the variable product to our view
+
     }
 
     /**
@@ -96,7 +100,12 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $product = Product::find($id);
+        $product->name = $request->name;
+        $product->price = $request->price;
+        $product->save();
+
+        return redirect()->route('product.index');
     }
 
     /**
@@ -107,6 +116,12 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        //first method to delete. pass the id to the delete button
+        // Product::destroy($id); //grabs the id from the route/url
+        // return redirect()->route('product.index');
+
+        $product = Product::find($id)->delete();
+        return redirect()->route('product.index');
+
     }
 }
