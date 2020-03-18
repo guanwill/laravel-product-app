@@ -1,10 +1,12 @@
-#Product App with Laravel 5.2
+_**[Personal Project - Not Maintained]**_
 
-##Purpose
+# Product App with Laravel 5.2
+
+## Purpose
 * To CRUD a product/item using Laravel
 * Familiarising with laravel's routes, controllers, and views/blades
 
-##Resources
+## Resources
 * [How to install laravel](https://medium.com/@kunalnagar/install-laravel-5-on-os-x-23f3578386f1#.f8pao0v8l)
 * [Laravel Tutorial for beginners](https://www.youtube.com/watch?v=Hzm9L3yVCt0)
 * [Laravel docs](https://laravel.com/docs/5.2/controllers#restful-resource-controllers)
